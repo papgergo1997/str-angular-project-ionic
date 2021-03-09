@@ -20,4 +20,14 @@ export class UserService {
       users => this.list$.next(users)
     );
   }
+
+  get(id: number): Observable<User> {
+    id = typeof id === 'string' ? parseInt(id, 10) : id;
+    const ev: Observable<User> | undefined = this.http.get<User>(`${this.apiUrl}/${id}`);
+    if (id == 0) {
+      return of(new User());
+    } else {
+      return ev;
+    }
+  }
 }
