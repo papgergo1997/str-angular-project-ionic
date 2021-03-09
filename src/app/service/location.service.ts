@@ -28,5 +28,9 @@ export class LocationService {
     }
   }
 
+  create(location: Location): Observable<Location> {
+    return this.http.post<Location>(this.apiUrl, location);
+  }
+
 
 }
