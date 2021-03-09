@@ -1,12 +1,16 @@
-<div class="card text-dark text-center" style="width: 18rem;">
-  <img src="/assets/img/{{user.photo}}.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{user.name}}</h5>
-    <p class="card-text">{{user.description}}
-    </p>
-    <p class="card-text">Gender: {{user.gender}}</p>
-    <p class="card-text">Age: {{user.age}} years old</p>
-    <p class="card-text">Address: {{user.location.zip}}, {{user.location.address}}. {{user.location.city}}</p>
+<ion-card class="text-center" color="primary" button="true">
+  <ion-card-header>
+    <img src="/assets/img/{{user.photo}}.jpg" alt="{{user.photo}}">
+    <ion-card-title>{{user.name}}</ion-card-title>
+  </ion-card-header>
 
-  </div>
-</div>
+  <ion-card-content>
+    {{user.description}}
+  </ion-card-content>
+  <ion-card-content>
+    {{user.age}}
+  </ion-card-content>
+  <ion-card-content>
+    {{user.gender}}
+  </ion-card-content>
+</ion-card>
