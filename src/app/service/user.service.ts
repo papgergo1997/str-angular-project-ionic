@@ -30,4 +30,18 @@ export class UserService {
       return ev;
     }
   }
+
+  create(user: User): Observable<User> {
+    return this.http.post<User>(this.apiUrl, user);
+  }
+
+  update(user: User): Observable<User> {
+    return this.http.patch<User>(`${this.apiUrl}/${user.id}`, user);
+  }
+
+  remove(user: User): void {
+    this.http.delete<User>(`${this.apiUrl}/${user.id}`).subscribe(
+      () => this.getAll()
+    );
+  }
 }
