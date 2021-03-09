@@ -11,7 +11,9 @@ export class LocationService {
   apiUrl: string = 'http://localhost:3000/locations';
   list$: BehaviorSubject<Location[]> = new BehaviorSubject<Location[]>([]);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.getAll();
+  }
 
 
   getAll(): void {
@@ -36,6 +38,12 @@ export class LocationService {
 
   update(location: Location): Observable<Location> {
     return this.http.patch<Location>(`${this.apiUrl}/${location.id}`, location);
+  }
+
+  remove(location: Location): void {
+    this.http.delete<Location>(`${this.apiUrl}/${location.id}`).subscribe(
+      () => this.getAll()
+    );
   }
 
 
