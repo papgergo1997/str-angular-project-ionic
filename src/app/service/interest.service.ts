@@ -31,4 +31,18 @@ export class InterestService {
     }
   }
 
+  create(interest: Interest): Observable<Interest> {
+    return this.http.post<Interest>(this.apiUrl, interest);
+  }
+
+  update(interest: Interest): Observable<Interest> {
+    return this.http.patch<Interest>(`${this.apiUrl}/${interest.id}`, interest);
+  }
+
+  remove(interest: Interest): void {
+    this.http.delete<Interest>(`${this.apiUrl}/${interest.id}`).subscribe(
+      () => this.getAll()
+    );
+  }
+
 }
