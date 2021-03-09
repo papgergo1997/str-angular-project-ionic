@@ -9,6 +9,7 @@ import { User } from '../model/user';
 export class ProfileCardComponent implements OnInit {
 
   @Input() user: User[] = [];
+  @Input() all: boolean = false;
   constructor() { }
 
   ngOnInit() { }

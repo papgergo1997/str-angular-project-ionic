@@ -1,4 +1,4 @@
-<ion-card class="text-center" color="primary" button="true">
+<ion-card class="text-center" button="true">
   <ion-card-header>
     <img src="/assets/img/{{user.photo}}.jpg" alt="{{user.photo}}">
     <ion-card-title>{{user.name}}</ion-card-title>
@@ -13,4 +13,10 @@
   <ion-card-content>
     {{user.gender}}
   </ion-card-content>
+  <div *ngIf="all" class="row my-5">
+    <ion-fab-button class="mx-auto" color="success"><i class="fa fa-thumbs-up"></i></ion-fab-button>
+    <ion-fab-button class="mx-auto" color="primary"><i class="fa fa-star"></i></ion-fab-button>
+    <ion-fab-button class="mx-auto" color="danger"><i class="fa fa-close"></i></ion-fab-button>
+  </div>
+
 </ion-card>

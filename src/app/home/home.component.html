@@ -15,7 +15,8 @@
   <ion-button color="primary">Show all</ion-button>
   <ion-button color="danger">Liked only</ion-button>
 
-  <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async" [user]="user"></app-profile-card>
+  <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async" [user]="user" [all]="all">
+  </app-profile-card>
 
 
 

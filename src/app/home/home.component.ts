@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../model/user';
 import { UserService } from '../service/user.service';
@@ -10,6 +10,7 @@ import { UserService } from '../service/user.service';
 })
 export class HomeComponent implements OnInit {
 
+  @Output() all: boolean = true;
   userList$: BehaviorSubject<User[]> = this.userService.list$;
 
   constructor(private userService: UserService) { }
