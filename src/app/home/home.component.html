@@ -13,13 +13,20 @@
     </ion-toolbar>
   </ion-header>
   <div class="row">
-    <ion-button class="mx-auto" color="primary">Show all</ion-button>
-    <ion-button class="mx-auto" color="danger">Liked only</ion-button>
+    <ion-button (click)="all = false" class="mx-auto" color="primary">Show all</ion-button>
+    <ion-button (click)="all = true" class="mx-auto" color="danger">Liked only</ion-button>
   </div>
 
+  <div *ngIf="!all">
+    <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async" [user]="user" [all]="all">
+    </app-profile-card>
+  </div>
 
-  <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async" [user]="user" [all]="all">
-  </app-profile-card>
+  <div *ngIf="all">
+    <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async | likedOnly:true" [user]="user"
+      [all]="all">
+    </app-profile-card>
+  </div>
 
 
 
