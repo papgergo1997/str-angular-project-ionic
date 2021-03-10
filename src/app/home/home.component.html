@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="row">
+    <ion-searchbar [(ngModel)]="phrase" showCancelButton="never"></ion-searchbar>
+    <ion-button (click)="all = false" class="mx-auto" color="primary">Show all</ion-button>
+    <ion-button (click)="all = true" class="mx-auto" color="danger">Liked only</ion-button>
+
+  </div>
+
+  <div *ngIf="!all">
+    <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async | showed:showed | filter:phrase"
+      [user]="user" [all]="all">
+    </app-profile-card>
+  </div>
+
+  <div *ngIf="all">
+    <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async | likedOnly:true | filter:phrase"
+      [user]="user" [all]="all">
+    </app-profile-card>
+  </div>
+
+
+
+</ion-content>
