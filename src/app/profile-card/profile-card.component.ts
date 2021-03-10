@@ -16,7 +16,13 @@ export class ProfileCardComponent implements OnInit {
   ngOnInit() { }
 
   onLike(boolean: boolean, user: User) {
-    user.liked = boolean
+    user.liked = boolean;
+    this.userService.update(user).subscribe(
+      () => this.userService.getAll()
+    )
+  }
+  onDisLike(boolean: boolean, user: User) {
+    user.liked = boolean;
     this.userService.update(user).subscribe(
       () => this.userService.getAll()
     )
