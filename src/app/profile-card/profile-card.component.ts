@@ -16,14 +16,12 @@ export class ProfileCardComponent implements OnInit {
   ngOnInit() { }
 
   onLike(boolean: boolean, user: User) {
-    this.userService.get(user).subscribe(
-      () => {
-        console.log(user.id)
-      }
+    console.log(user)
+    user.liked = boolean
+    console.log(user.liked)
+    this.userService.update(user).subscribe(
+      () => this.userService.getAll()
     )
-
-    user.liked == boolean
-    this.userService.update(user)
   }
 
 }
