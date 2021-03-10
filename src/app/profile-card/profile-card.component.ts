@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../model/user';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-profile-card',
@@ -8,10 +9,21 @@ import { User } from '../model/user';
 })
 export class ProfileCardComponent implements OnInit {
 
-  @Input() user: User[] = [];
+  @Input() user: User = new User();
   @Input() all: boolean = false;
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() { }
+
+  onLike(boolean: boolean, user: User) {
+    this.userService.get(user).subscribe(
+      () => {
+        console.log(user.id)
+      }
+    )
+
+    user.liked == boolean
+    this.userService.update(user)
+  }
 
 }

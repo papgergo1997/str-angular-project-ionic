@@ -10,4 +10,5 @@ export class User {
     description: string = '';
     location: Location = new Location();
     interests: Interest = new Interest();
+    liked: boolean = false
 }
