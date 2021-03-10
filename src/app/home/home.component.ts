@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   @Output() all: boolean = true;
   userList$: BehaviorSubject<User[]> = this.userService.list$;
+  phrase: string = '';
 
   constructor(private userService: UserService) { }
 

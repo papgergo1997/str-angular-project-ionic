@@ -9,8 +9,9 @@ import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { HomeComponent } from './home/home.component'
 import { FormsModule } from '@angular/forms';
 import { LikedOnlyPipe } from './pipes/liked-only.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 @NgModule({
-  declarations: [AppComponent, ProfileCardComponent, HomeComponent, LikedOnlyPipe],
+  declarations: [AppComponent, ProfileCardComponent, HomeComponent, LikedOnlyPipe, FilterPipe],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
