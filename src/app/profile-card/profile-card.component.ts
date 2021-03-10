@@ -17,9 +17,7 @@ export class ProfileCardComponent implements OnInit {
 
   onLike(boolean: boolean, user: User) {
     user.liked = boolean;
-    this.userService.update(user).subscribe(
-      () => this.userService.getAll()
-    )
+    this.userService.update(user)
   }
   onDisLike(boolean: boolean, user: User) {
     user.liked = boolean;
@@ -27,5 +25,10 @@ export class ProfileCardComponent implements OnInit {
       () => this.userService.getAll()
     )
   }
-
+  onDisLikeWhenAllSeen(boolean: boolean, user: User) {
+    user.showed = boolean;
+    this.userService.update(user).subscribe(
+      () => this.userService.getAll()
+    )
+  }
 }

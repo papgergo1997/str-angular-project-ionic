@@ -20,8 +20,8 @@
   </div>
 
   <div *ngIf="!all">
-    <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async | filter:phrase" [user]="user"
-      [all]="all">
+    <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async | showed:showed | filter:phrase"
+      [user]="user" [all]="all">
     </app-profile-card>
   </div>
 
