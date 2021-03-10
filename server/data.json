@@ -69,8 +69,8 @@
       "description": "Adventure|Animation|Drama",
       "location": "91406 Stang Trail",
       "interests": "Research and Development",
-      "liked": false,
-      "showed": true
+      "liked": true,
+      "showed": false
     },
     {
       "id": 7,
@@ -141,8 +141,8 @@
       "description": "Comedy|Drama",
       "location": "0464 Morning Drive",
       "interests": "Engineering",
-      "liked": false,
-      "showed": true
+      "liked": true,
+      "showed": false
     },
     {
       "id": 13,
@@ -189,8 +189,8 @@
       "description": "Adventure|Children|Sci-Fi",
       "location": "948 Everett Pass",
       "interests": "Services",
-      "liked": false,
-      "showed": true
+      "liked": true,
+      "showed": false
     },
     {
       "id": 17,
@@ -237,8 +237,8 @@
       "description": "Adventure|Romance|IMAX",
       "location": "5 Parkside Avenue",
       "interests": "Support",
-      "liked": false,
-      "showed": true
+      "liked": true,
+      "showed": false
     },
     {
       "id": 21,
@@ -249,8 +249,8 @@
       "description": "Documentary|War",
       "location": "55 Helena Way",
       "interests": "Accounting",
-      "liked": false,
-      "showed": true
+      "liked": true,
+      "showed": false
     },
     {
       "id": 22,
@@ -359,6 +359,48 @@
       "interests": "Human Resources",
       "liked": false,
       "showed": true
+    },
+    {
+      "id": 31,
+      "name": "Pap Gergő",
+      "gender": "Male",
+      "age": 23,
+      "photo": "/assets/img/pierrerotor.jpg",
+      "description": "I love sci-fi, historical, horror, drama and actions movies, looking for a girl with the same interests",
+      "location": {
+        "zip": "3348",
+        "city": "Szilvásvárad",
+        "address": "13 Rákóczi Ferenc Str."
+      },
+      "interests": "Movies/all kind",
+      "liked": false,
+      "showed": false
+    }
+  ],
+  "connections": [
+    {
+      "id": 1,
+      "user1": 31,
+      "user2": 6,
+      "accepted": true
+    },
+    {
+      "id": 2,
+      "user1": 31,
+      "user2": 12,
+      "accepted": false
+    },
+    {
+      "id": 3,
+      "user1": 31,
+      "user2": 20,
+      "accepted": false
+    },
+    {
+      "id": 4,
+      "user1": 31,
+      "user2": 16,
+      "accepted": false
     }
   ]
 }
