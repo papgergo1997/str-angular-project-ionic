@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Connection } from '../model/connection';
+import { User } from '../model/user';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,10 @@ export class ConnectionService {
   apiUrl: string = 'http://localhost:3000/connections';
   list$: BehaviorSubject<Connection[]> = new BehaviorSubject<Connection[]>([]);
   usersConnection: Connection[] = [];
+  user: User = new User();
+  connectionNumbers: number[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UserService) {
     this.getAll();
   }
 
@@ -44,4 +48,13 @@ export class ConnectionService {
       () => this.getAll()
     );
   }
+  getConnection(id: number = this.user.id): void {
+    this.http.get<Connection[]>(this.apiUrl).subscribe((connection) => connection.forEach(item => {
+      if ((item.user1 == id) || (item.user2 == id)) {
+        this.usersConnection.push(item)
+      } else return
+    }))
+  }
+
 }
+
