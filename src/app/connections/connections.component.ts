@@ -38,7 +38,6 @@ export class ConnectionsComponent implements OnInit {
       this.userService.get(item).subscribe((user) => this.users.push(user))
     });
     this.connectedUsers$.next(this.users);
-    console.log(this.connectionNumbers)
   }
   getUserIds(): void {
     this.connections.forEach((item) => {
