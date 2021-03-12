@@ -11,7 +11,6 @@ import { UserService } from './user.service';
 export class ConnectionService {
   apiUrl: string = 'http://localhost:3000/connections';
   list$: BehaviorSubject<Connection[]> = new BehaviorSubject<Connection[]>([]);
-  usersConnection: Connection[] = [];
   user: User = new User();
   connectionNumbers: number[] = [];
 
@@ -43,17 +42,12 @@ export class ConnectionService {
     return this.http.patch<Connection>(`${this.apiUrl}/${connection.id}`, connection);
   }
 
-  remove(connection: Connection): void {
-    this.http.delete<Connection>(`${this.apiUrl}/${connection.id}`).subscribe(
-      () => this.getAll()
-    );
+  remove(connection: Connection): Observable<Connection> {
+    return this.http.delete<Connection>(`${this.apiUrl}/${connection.id}`);
   }
-  getConnection(id: number = this.user.id): void {
-    this.http.get<Connection[]>(this.apiUrl).subscribe((connection) => connection.forEach(item => {
-      if ((item.user1 == id) || (item.user2 == id)) {
-        this.usersConnection.push(item)
-      } else return
-    }))
+  getConnection(): void {
+    this.http.get<Connection[]>(this.apiUrl).subscribe((connection) => this.list$.next(connection)
+    )
   }
 
 }

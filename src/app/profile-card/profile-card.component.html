@@ -13,7 +13,7 @@
   <ion-card-content>
     {{user.gender}}
   </ion-card-content>
-  <div *ngIf="!all" class="row my-5">
+  <div *ngIf="!all && currentUser == 0" class="row my-5">
     <ion-fab-button (click)="onLike(true, user)" (click)="onDisLikeWhenAllSeen(false, user)" class="mx-auto"
       color="success"><i class="fa fa-thumbs-up"></i>
     </ion-fab-button>
@@ -21,10 +21,16 @@
     <ion-fab-button (click)="onDisLikeWhenAllSeen(false, user)" class="mx-auto" color="danger"><i
         class="fa fa-close"></i></ion-fab-button>
   </div>
+  <div *ngIf="currentUser != 0" class="row my-5">
+    <ion-fab-button class="mx-auto" color="primary"><i class="fa fa-star"></i></ion-fab-button>
+    <ion-fab-button (click)="onDeleteConnection(connection)" class="mx-auto" color="danger"><i class="fa fa-close"></i>
+    </ion-fab-button>
+  </div>
   <div *ngIf="all" class="row my-5">
     <ion-fab-button class="mx-auto" color="primary"><i class="fa fa-star"></i></ion-fab-button>
     <ion-fab-button (click)="onDisLike(false, user)" class="mx-auto" color="danger"><i class="fa fa-close"></i>
     </ion-fab-button>
   </div>
+
 
 </ion-card>

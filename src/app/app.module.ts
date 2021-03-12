@@ -14,8 +14,9 @@ import { LikedOnlyPipe } from './pipes/liked-only.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ShowedPipe } from './pipes/showed.pipe';
 import { ShowLatestPipe } from './pipes/show-latest.pipe';
+import { ShowAcceptedConnectionsPipe } from './pipes/show-accepted-connections.pipe';
 @NgModule({
-  declarations: [AppComponent, ProfileCardComponent, HomeComponent, ConnectionsComponent, ProfileComponent, LikedOnlyPipe, FilterPipe, ShowedPipe, ShowLatestPipe],
+  declarations: [AppComponent, ProfileCardComponent, HomeComponent, ConnectionsComponent, ProfileComponent, LikedOnlyPipe, FilterPipe, ShowedPipe, ShowLatestPipe, ShowAcceptedConnectionsPipe],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

@@ -12,5 +12,7 @@
       <ion-title size="large">Connection</ion-title>
     </ion-toolbar>
   </ion-header>
-  <app-profile-card *ngFor="let user of connectedUsers$ | async" [user]="user"></app-profile-card>
+  <app-profile-card *ngFor="let connection of connections | async | showAcceptedConnections:accepted"
+    [connection]="connection" [currentUser]="currentUser">
+  </app-profile-card>
 </ion-content>

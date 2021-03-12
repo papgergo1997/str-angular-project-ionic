@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Connection } from '../model/connection';
 import { User } from '../model/user';
@@ -13,18 +13,19 @@ import { UserService } from '../service/user.service';
 export class ConnectionsComponent implements OnInit {
 
   connectedUsers$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  accepted: boolean = true;
   users: User[] = [];
   connectionNumbers: number[] = [];
-  currentUser: number = 31;
-  connections: Connection[] = this.connectionService.usersConnection;
+  @Output() currentUser: number = 31;
+  connections: BehaviorSubject<Connection[]> = this.connectionService.list$;
   constructor(private userService: UserService, private connectionService: ConnectionService) {
-    this.connectionService.getConnection(this.currentUser);
+    this.connectionService.getConnection();
   }
 
   ngOnInit() {
+    this.connectionService.getAll()
 
     setTimeout(() => {
-      this.getUserIds()
       this.getConnectedUsers()
     }, 500);
 
@@ -39,11 +40,6 @@ export class ConnectionsComponent implements OnInit {
     });
     this.connectedUsers$.next(this.users);
   }
-  getUserIds(): void {
-    this.connections.forEach((item) => {
-      this.connectionNumbers.push(item.user2)
-      this.connectionNumbers.push(item.user1)
-    })
-  }
+
 
 }
