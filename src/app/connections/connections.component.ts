@@ -12,10 +12,7 @@ import { UserService } from '../service/user.service';
 })
 export class ConnectionsComponent implements OnInit {
 
-  connectedUsers$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   accepted: boolean = true;
-  users: User[] = [];
-  connectionNumbers: number[] = [];
   @Output() currentUser: number = 31;
   connections: BehaviorSubject<Connection[]> = this.connectionService.list$;
   constructor(private userService: UserService, private connectionService: ConnectionService) {
@@ -24,22 +21,6 @@ export class ConnectionsComponent implements OnInit {
 
   ngOnInit() {
     this.connectionService.getAll()
-
-    setTimeout(() => {
-      this.getConnectedUsers()
-    }, 500);
-
-
   }
-  getConnectedUsers(): void {
-    this.connectionNumbers.forEach((item) => {
-      if (item == this.currentUser) {
-        return
-      }
-      this.userService.get(item).subscribe((user) => this.users.push(user))
-    });
-    this.connectedUsers$.next(this.users);
-  }
-
 
 }

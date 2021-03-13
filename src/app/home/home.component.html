@@ -12,20 +12,21 @@
       <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="row">
+  <div class="col-12 col-lg-6 offset-lg-3">
     <ion-searchbar class="search-bar" [(ngModel)]="phrase" showCancelButton="never"></ion-searchbar>
-    <ion-button (click)="all = false" class="mx-auto" color="success">Show all</ion-button>
-    <ion-button (click)="all = true" class="mx-auto" color="success">Liked only</ion-button>
-
+    <div class="row">
+      <ion-button (click)="all = false" class="mx-auto" color="success">Show all</ion-button>
+      <ion-button (click)="all = true" class="mx-auto" color="success">Liked only</ion-button>
+    </div>
   </div>
 
-  <div *ngIf="!all">
+  <div class="col-lg-4 offset-lg-4" *ngIf="!all">
     <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async | showed:showed | filter:phrase"
       [user]="user" [all]="all">
     </app-profile-card>
   </div>
 
-  <div *ngIf="all">
+  <div class="col-lg-4 offset-lg-4" *ngIf="all">
     <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async | likedOnly:true | filter:phrase"
       [user]="user" [all]="all">
     </app-profile-card>

@@ -12,7 +12,7 @@ export class ConnectionService {
   apiUrl: string = 'http://localhost:3000/connections';
   list$: BehaviorSubject<Connection[]> = new BehaviorSubject<Connection[]>([]);
   user: User = new User();
-  connectionNumbers: number[] = [];
+
 
   constructor(private http: HttpClient, private userService: UserService) {
     this.getAll();

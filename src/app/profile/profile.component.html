@@ -13,8 +13,8 @@
     </ion-toolbar>
   </ion-header>
   <ion-grid>
-    <ion-row>
-      <form class="col-12 col-lg-6 offset-lg-3">
+    <ion-row *ngIf="user">
+      <form #userForm="ngForm" class="col-12 col-lg-6 offset-lg-3">
         <div class="profile-photo--container" *ngFor="let photo of photoService.photos | showLatest; index as position">
           <ion-img class="mx-auto" [src]="photo.webviewPath"></ion-img>
         </div>
@@ -25,20 +25,90 @@
         </ion-fab>
         <div class="form-group">
           <label for="" class="mt-2">Name</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="" class="mt-2">Description</label>
-          <input type="text" class="form-control">
+          <input name="name" [(ngModel)]="user.name" type="text" class="form-control"
+            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" required>
+          <div [hidden]="userForm.controls.name?.valid || userForm.controls.name?.pristine" class="error-feedback">
+            Name must start with an UPPERCASE character, and must be 2 characters long at least
+          </div>
         </div>
         <div class="form-group">
           <label for="" class="mt-2">Age</label>
-          <input type="text" class="form-control">
+          <input name="age" [(ngModel)]="user.age" type="text" class="form-control"
+            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" required>
+          <div [hidden]="userForm.controls.age?.valid || userForm.controls.age?.pristine" class="error-feedback">
+            Name must start with an UPPERCASE character, and must be 2 characters long at least
+          </div>
         </div>
         <div class="form-group">
           <label for="" class="mt-2">Gender</label>
-          <input type="text" class="form-control">
+          <input name="gender" [(ngModel)]="user.gender" type="text" class="form-control"
+            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" required>
+          <div [hidden]="userForm.controls.gender?.valid || userForm.controls.gender?.pristine" class="error-feedback">
+            Name must start with an UPPERCASE character, and must be 2 characters long at least
+          </div>
         </div>
+        <div class="form-group">
+          <label for="" class="mt-2">Description</label>
+          <input name="description" [(ngModel)]="user.description" type="text" class="form-control"
+            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" required>
+          <div [hidden]="userForm.controls.description?.valid || userForm.controls.description?.pristine"
+            class="error-feedback">
+            Name must start with an UPPERCASE character, and must be 2 characters long at least
+          </div>
+        </div>
+
+        <h4 class="text-center">Interests</h4>
+
+        <div class="form-group">
+          <label for="" class="mt-2">Interest</label>
+          <input name="interestName" [(ngModel)]="user.interests.name" type="text" class="form-control"
+            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" required>
+          <div [hidden]="userForm.controls.interestName?.valid || userForm.controls.interestName?.pristine"
+            class="error-feedback">
+            Name must start with an UPPERCASE character, and must be 2 characters long at least
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="mt-2">Description</label>
+          <input name="interestDes" [(ngModel)]="user.interests.description" type="text" class="form-control"
+            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" required>
+          <div [hidden]="userForm.controls.interestDes?.valid || userForm.controls.interestDes?.pristine"
+            class="error-feedback">
+            Name must start with an UPPERCASE character, and must be 2 characters long at least
+          </div>
+        </div>
+
+        <h4 class="text-center">Location</h4>
+
+        <div class="form-group">
+          <label for="" class="mt-2">Zip</label>
+          <input name="zip" [(ngModel)]="user.location.zip" type="text" class="form-control"
+            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" required>
+          <div [hidden]="userForm.controls.zip?.valid || userForm.controls.zip?.pristine" class="error-feedback">
+            Name must start with an UPPERCASE character, and must be 2 characters long at least
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="mt-2">City</label>
+          <input name="city" [(ngModel)]="user.location.city" type="text" class="form-control"
+            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" required>
+          <div [hidden]="userForm.controls.city?.valid || userForm.controls.city?.pristine" class="error-feedback">
+            Name must start with an UPPERCASE character, and must be 2 characters long at least
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="mt-2">Address</label>
+          <input name="address" [(ngModel)]="user.location.address" type="text" class="form-control"
+            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" required>
+          <div [hidden]="userForm.controls.address?.valid || userForm.controls.address?.pristine"
+            class="error-feedback">
+            Name must start with an UPPERCASE character, and must be 2 characters long at least
+          </div>
+        </div>
+        <button [disabled]="userForm.invalid || submitted" type="submit" class="btn btn-success btn-block btn-lg mt-3">
+          <span *ngIf="!submitted" class="fa fa-save"></span>
+          <span *ngIf="submitted" class="fa fa-refresh save"></span>
+        </button>
       </form>
     </ion-row>
   </ion-grid>
