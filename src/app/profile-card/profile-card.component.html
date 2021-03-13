@@ -4,14 +4,17 @@
     <ion-card-title>{{user.name}}</ion-card-title>
   </ion-card-header>
 
-  <ion-card-content>
+  <ion-card-content class="py-0">
     {{user.description}}
   </ion-card-content>
-  <ion-card-content>
+  <ion-card-content class="py-0">
     {{user.age}}
   </ion-card-content>
-  <ion-card-content>
+  <ion-card-content class="py-0">
     {{user.gender}}
+  </ion-card-content>
+  <ion-card-content class="py-0">
+    {{user.location.city}}
   </ion-card-content>
   <div *ngIf="!all && currentUser == 0" class="row my-5">
     <ion-fab-button (click)="onLike(true, user)" (click)="onDisLikeWhenAllSeen(false, user)" class="mx-auto"

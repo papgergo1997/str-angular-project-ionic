@@ -6,8 +6,12 @@
       "gender": "Male",
       "age": 21,
       "photo": "https://robohash.org/sedetquaerat.png?size=50x50&set=set1",
-      "description": "Action|Animation|Children|Comedy|Musical",
-      "location": "03 Warbler Avenue",
+      "description": "I love Action, Animation, Children, Comedy, Musical movies",
+      "location": {
+        "zip": "RG11",
+        "city": "Budapest",
+        "address": "03 Warbler Avenue"
+      },
       "interests": "Support",
       "liked": false,
       "showed": true
@@ -18,8 +22,12 @@
       "gender": "Female",
       "age": 36,
       "photo": "https://robohash.org/voluptasquiconsectetur.png?size=50x50&set=set1",
-      "description": "Drama",
-      "location": "60 Golf Course Center",
+      "description": "I love Drama movies",
+      "location": {
+        "zip": "5355",
+        "city": "Szeged",
+        "address": "60 Golf Course Center"
+      },
       "interests": "Engineering",
       "liked": false,
       "showed": true
@@ -30,8 +38,12 @@
       "gender": "Female",
       "age": 48,
       "photo": "https://robohash.org/doloraccusantiumnon.bmp?size=50x50&set=set1",
-      "description": "Drama",
-      "location": "16 Dennis Avenue",
+      "description": "I love Drama movies",
+      "location": {
+        "zip": "5353",
+        "city": "Győr",
+        "address": "16 Dennis Avenue"
+      },
       "interests": "Marketing",
       "liked": false,
       "showed": true
@@ -42,8 +54,12 @@
       "gender": "Female",
       "age": 42,
       "photo": "https://robohash.org/officiaaperiamnumquam.jpg?size=50x50&set=set1",
-      "description": "Drama|Musical",
-      "location": "1 Rusk Center",
+      "description": "I love Drama, Musical movies",
+      "location": {
+        "zip": "4242",
+        "city": "Budapest",
+        "address": "1 Rusk Center"
+      },
       "interests": "Business Development",
       "liked": false,
       "showed": true
@@ -54,8 +70,12 @@
       "gender": "Male",
       "age": 22,
       "photo": "https://robohash.org/erroretminus.bmp?size=50x50&set=set1",
-      "description": "Documentary",
-      "location": "91 Lunder Park",
+      "description": "I love Documentary movies",
+      "location": {
+        "zip": "23425",
+        "city": "Gyömlő",
+        "address": "91 Lunder Park"
+      },
       "interests": "Services",
       "liked": false,
       "showed": true
@@ -66,8 +86,12 @@
       "gender": "Female",
       "age": 20,
       "photo": "https://robohash.org/voluptasoccaecatiquos.png?size=50x50&set=set1",
-      "description": "Adventure|Animation|Drama",
-      "location": "91406 Stang Trail",
+      "description": "I love Adventure, Animation, Drama movies",
+      "location": {
+        "zip": "3348",
+        "city": "Szilvásvárad",
+        "address": "91406 Stang Trail"
+      },
       "interests": "Research and Development",
       "liked": true,
       "showed": false
@@ -78,8 +102,12 @@
       "gender": "Female",
       "age": 25,
       "photo": "https://robohash.org/inventoresintea.png?size=50x50&set=set1",
-      "description": "Drama",
-      "location": "022 Grim Drive",
+      "description": "I love Drama movies",
+      "location": {
+        "zip": "5425",
+        "city": "Gyál",
+        "address": "022 Grim Drive"
+      },
       "interests": "Services",
       "liked": false,
       "showed": true
@@ -90,8 +118,12 @@
       "gender": "Male",
       "age": 24,
       "photo": "https://robohash.org/officiaoptiout.bmp?size=50x50&set=set1",
-      "description": "Drama",
-      "location": "7 Haas Drive",
+      "description": "I love Drama movies",
+      "location": {
+        "zip": "54252",
+        "city": "Szeged",
+        "address": "7 Haas Drive"
+      },
       "interests": "Legal",
       "liked": false,
       "showed": true
@@ -102,8 +134,12 @@
       "gender": "Male",
       "age": 34,
       "photo": "https://robohash.org/aliquidquiipsum.jpg?size=50x50&set=set1",
-      "description": "Crime|Horror|Mystery",
-      "location": "0756 Oak Valley Road",
+      "description": "I love Crime, Horror, Mystery movies",
+      "location": {
+        "zip": "4214",
+        "city": "Tiszavasvár",
+        "address": "0756 Oak Valley Road"
+      },
       "interests": "Research and Development",
       "liked": false,
       "showed": true
@@ -114,8 +150,12 @@
       "gender": "Female",
       "age": 35,
       "photo": "https://robohash.org/abillodoloribus.jpg?size=50x50&set=set1",
-      "description": "Drama",
-      "location": "8457 Wayridge Plaza",
+      "description": "I love Drama movies",
+      "location": {
+        "zip": "2424",
+        "city": "Tiszafüred",
+        "address": "8457 Wayridge Plaza"
+      },
       "interests": "Human Resources",
       "liked": false,
       "showed": true
@@ -126,8 +166,12 @@
       "gender": "Female",
       "age": 50,
       "photo": "https://robohash.org/quisipsuma.png?size=50x50&set=set1",
-      "description": "Horror",
-      "location": "17653 Mandrake Parkway",
+      "description": "I love Horror movies",
+      "location": {
+        "zip": "52541",
+        "city": "Budapest",
+        "address": "17653 Mandrake Parkway"
+      },
       "interests": "Engineering",
       "liked": false,
       "showed": true
@@ -138,8 +182,12 @@
       "gender": "Female",
       "age": 23,
       "photo": "https://robohash.org/perferendisminimaexplicabo.jpg?size=50x50&set=set1",
-      "description": "Comedy|Drama",
-      "location": "0464 Morning Drive",
+      "description": "I love Comedy, Drama movies",
+      "location": {
+        "zip": "64634",
+        "city": "Nagyvisnyó",
+        "address": "0464 Morning Drive"
+      },
       "interests": "Engineering",
       "liked": true,
       "showed": false
@@ -150,8 +198,12 @@
       "gender": "Female",
       "age": 44,
       "photo": "https://robohash.org/dignissimosoditrem.png?size=50x50&set=set1",
-      "description": "Comedy|Musical",
-      "location": "6557 Kropf Court",
+      "description": "I love Comedy, Musical movies",
+      "location": {
+        "zip": "3348",
+        "city": "Szilvásvárad",
+        "address": "6557 Kropf Court"
+      },
       "interests": "Research and Development",
       "liked": false,
       "showed": true
@@ -162,8 +214,12 @@
       "gender": "Female",
       "age": 43,
       "photo": "https://robohash.org/utmaioresvoluptatum.png?size=50x50&set=set1",
-      "description": "Crime|Drama|Mystery",
-      "location": "7 Paget Parkway",
+      "description": "I love Crime, Drama, Mystery movies",
+      "location": {
+        "zip": "3300",
+        "city": "Eger",
+        "address": "7 Paget Parkway"
+      },
       "interests": "Engineering",
       "liked": false,
       "showed": true
@@ -174,8 +230,12 @@
       "gender": "Male",
       "age": 32,
       "photo": "https://robohash.org/estdolorumvoluptatum.png?size=50x50&set=set1",
-      "description": "Drama",
-      "location": "9 Westport Parkway",
+      "description": "I love Drama movies",
+      "location": {
+        "zip": "5252",
+        "city": "Heves",
+        "address": "9 Westport Parkway"
+      },
       "interests": "Legal",
       "liked": false,
       "showed": true
@@ -186,8 +246,12 @@
       "gender": "Female",
       "age": 27,
       "photo": "https://robohash.org/voluptatummollitiaet.jpg?size=50x50&set=set1",
-      "description": "Adventure|Children|Sci-Fi",
-      "location": "948 Everett Pass",
+      "description": "I love Adventure, Children, Sci-Fi movies",
+      "location": {
+        "zip": "6636",
+        "city": "Balma",
+        "address": "948 Everett Pass"
+      },
       "interests": "Services",
       "liked": true,
       "showed": false
@@ -198,8 +262,12 @@
       "gender": "Male",
       "age": 24,
       "photo": "https://robohash.org/temporedoloresofficia.jpg?size=50x50&set=set1",
-      "description": "Comedy",
-      "location": "86156 Mosinee Street",
+      "description": "I love Comedy movies",
+      "location": {
+        "zip": "6363",
+        "city": "Gyöngyös",
+        "address": "86156 Mosinee Street"
+      },
       "interests": "Legal",
       "liked": false,
       "showed": true
@@ -210,8 +278,12 @@
       "gender": "Female",
       "age": 46,
       "photo": "https://robohash.org/etveniamquisquam.jpg?size=50x50&set=set1",
-      "description": "Thriller",
-      "location": "44451 Oxford Drive",
+      "description": "I love Thriller movies",
+      "location": {
+        "zip": "5525",
+        "city": "Győr",
+        "address": "44451 Oxford Drive"
+      },
       "interests": "Marketing",
       "liked": false,
       "showed": true
@@ -222,8 +294,12 @@
       "gender": "Male",
       "age": 44,
       "photo": "https://robohash.org/harumofficiavoluptas.jpg?size=50x50&set=set1",
-      "description": "Comedy|Drama",
-      "location": "26 Waywood Trail",
+      "description": "I love Comedy, Drama movies",
+      "location": {
+        "zip": "25252",
+        "city": "Szolnok",
+        "address": "26 Waywood Trail"
+      },
       "interests": "Accounting",
       "liked": false,
       "showed": true
@@ -234,8 +310,12 @@
       "gender": "Female",
       "age": 26,
       "photo": "https://robohash.org/quodolorumipsum.png?size=50x50&set=set1",
-      "description": "Adventure|Romance|IMAX",
-      "location": "5 Parkside Avenue",
+      "description": "I love Adventure, Romance, IMAX movies",
+      "location": {
+        "zip": "424124",
+        "city": "BalatonFüred",
+        "address": "5 Parkside Avenue"
+      },
       "interests": "Support",
       "liked": true,
       "showed": false
@@ -246,8 +326,12 @@
       "gender": "Female",
       "age": 26,
       "photo": "https://robohash.org/liberomagnamrecusandae.jpg?size=50x50&set=set1",
-      "description": "Documentary|War",
-      "location": "55 Helena Way",
+      "description": "I love Documentary, War movies",
+      "location": {
+        "zip": "6366",
+        "city": "Csömörnök",
+        "address": "55 Helena Way"
+      },
       "interests": "Accounting",
       "liked": true,
       "showed": false
@@ -258,8 +342,12 @@
       "gender": "Female",
       "age": 46,
       "photo": "https://robohash.org/utautet.bmp?size=50x50&set=set1",
-      "description": "Action|Crime|Drama|Thriller",
-      "location": "5 Sutteridge Court",
+      "description": "I love Action, Crime, Drama, Thriller movies",
+      "location": {
+        "zip": "78577",
+        "city": "Bántafa",
+        "address": "5 Sutteridge Court"
+      },
       "interests": "Research and Development",
       "liked": false,
       "showed": true
@@ -270,8 +358,12 @@
       "gender": "Male",
       "age": 18,
       "photo": "https://robohash.org/utautemnecessitatibus.bmp?size=50x50&set=set1",
-      "description": "Drama",
-      "location": "80 Truax Street",
+      "description": "I love Drama movies",
+      "location": {
+        "zip": "74737",
+        "city": "Csinkó",
+        "address": "80 Truax Street"
+      },
       "interests": "Business Development",
       "liked": false,
       "showed": true
@@ -282,8 +374,12 @@
       "gender": "Female",
       "age": 26,
       "photo": "https://robohash.org/eosidvoluptatibus.png?size=50x50&set=set1",
-      "description": "Documentary",
-      "location": "14230 Hanson Parkway",
+      "description": " I love Documentary movies",
+      "location": {
+        "zip": "6322",
+        "city": "Mándorna",
+        "address": "14230 Hanson Parkway"
+      },
       "interests": "Support",
       "liked": false,
       "showed": true
@@ -294,8 +390,12 @@
       "gender": "Male",
       "age": 45,
       "photo": "https://robohash.org/aliquametvoluptatem.jpg?size=50x50&set=set1",
-      "description": "Drama|Horror",
-      "location": "048 Harper Alley",
+      "description": "I like Drama and Horror movies",
+      "location": {
+        "zip": "5522",
+        "city": "Győr",
+        "address": "048 Harper Alley"
+      },
       "interests": "Support",
       "liked": false,
       "showed": true
@@ -306,8 +406,12 @@
       "gender": "Female",
       "age": 28,
       "photo": "https://robohash.org/delenitivoluptatemlaborum.bmp?size=50x50&set=set1",
-      "description": "Crime",
-      "location": "2 Ridge Oak Court",
+      "description": " I love Crime movies and those who like them too",
+      "location": {
+        "zip": "886889",
+        "city": "Cinkópa",
+        "address": "2 Ridge Oak Court"
+      },
       "interests": "Marketing",
       "liked": false,
       "showed": true
@@ -318,8 +422,12 @@
       "gender": "Male",
       "age": 21,
       "photo": "https://robohash.org/idinqui.bmp?size=50x50&set=set1",
-      "description": "Crime|Drama|Thriller",
-      "location": "0630 Roth Circle",
+      "description": " I love Crime, Drama, Thriller movies",
+      "location": {
+        "zip": "9974",
+        "city": "Lábaretek",
+        "address": "0630 Roth Circle"
+      },
       "interests": "Engineering",
       "liked": false,
       "showed": true
@@ -330,8 +438,12 @@
       "gender": "Female",
       "age": 19,
       "photo": "https://robohash.org/voluptatembeataepariatur.jpg?size=50x50&set=set1",
-      "description": "Adventure|Comedy|Fantasy|Musical",
-      "location": "3 Brown Center",
+      "description": "I love Adventure,Comedy,Fantasy,Musical movies",
+      "location": {
+        "zip": "7574",
+        "city": "Boncsafa",
+        "address": "3 Brown Center"
+      },
       "interests": "Product Management",
       "liked": false,
       "showed": true
@@ -342,8 +454,12 @@
       "gender": "Female",
       "age": 45,
       "photo": "https://robohash.org/etcorporisadipisci.jpg?size=50x50&set=set1",
-      "description": "Drama|Thriller",
-      "location": "11711 Sauthoff Trail",
+      "description": "I love Drama and Thriller movies",
+      "location": {
+        "zip": "6332",
+        "city": "Lantorja",
+        "address": "11711 Sauthoff Trail"
+      },
       "interests": "Sales",
       "liked": false,
       "showed": true
@@ -355,7 +471,11 @@
       "age": 28,
       "photo": "https://robohash.org/quiperferendisvoluptas.bmp?size=50x50&set=set1",
       "description": "Horror",
-      "location": "8427 Lunder Junction",
+      "location": {
+        "zip": "53356",
+        "city": "Szolnok",
+        "address": "8427 Lunder Junction"
+      },
       "interests": "Human Resources",
       "liked": false,
       "showed": true
@@ -372,7 +492,23 @@
         "city": "Szilvásvárad",
         "address": "13 Rákóczi Ferenc Str."
       },
-      "interests": "Movies/all kind",
+      "interests": [
+        {
+          "id": 1,
+          "name": "rock climbing",
+          "description": "climbing rocks"
+        },
+        {
+          "id": 2,
+          "name": "motorcycling",
+          "description": "riding motorbikes"
+        },
+        {
+          "id": 3,
+          "name": "paragliding",
+          "description": "learn to fly"
+        }
+      ],
       "liked": false,
       "showed": false
     }

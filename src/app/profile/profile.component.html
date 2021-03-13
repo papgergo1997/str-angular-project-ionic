@@ -14,15 +14,34 @@
   </ion-header>
   <ion-grid>
     <ion-row>
-      <ion-col size="6" *ngFor="let photo of photoService.photos | showLatest; index as position">
-        <ion-img [src]="photo.webviewPath"></ion-img>
-      </ion-col>
+      <form class="col-12 col-lg-6 offset-lg-3">
+        <div class="profile-photo--container" *ngFor="let photo of photoService.photos | showLatest; index as position">
+          <ion-img class="mx-auto" [src]="photo.webviewPath"></ion-img>
+        </div>
+        <ion-fab vertical="top" horizontal="center" slot="fixed">
+          <ion-fab-button (click)="addPhotoToGallery()">
+            <ion-icon name="camera"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+        <div class="form-group">
+          <label for="" class="mt-2">Name</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="" class="mt-2">Description</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="" class="mt-2">Age</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="" class="mt-2">Gender</label>
+          <input type="text" class="form-control">
+        </div>
+      </form>
     </ion-row>
   </ion-grid>
 
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="addPhotoToGallery()">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+
 </ion-content>

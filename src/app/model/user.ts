@@ -9,7 +9,7 @@ export class User {
     photo: string = '';
     description: string = '';
     location: Location = new Location();
-    interests: Interest = new Interest();
+    interests: Interest[] = [];
     liked: boolean = false;
     showed: boolean = true
 }

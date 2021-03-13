@@ -13,9 +13,9 @@
     </ion-toolbar>
   </ion-header>
   <div class="row">
-    <ion-searchbar [(ngModel)]="phrase" showCancelButton="never"></ion-searchbar>
-    <ion-button (click)="all = false" class="mx-auto" color="primary">Show all</ion-button>
-    <ion-button (click)="all = true" class="mx-auto" color="danger">Liked only</ion-button>
+    <ion-searchbar class="search-bar" [(ngModel)]="phrase" showCancelButton="never"></ion-searchbar>
+    <ion-button (click)="all = false" class="mx-auto" color="success">Show all</ion-button>
+    <ion-button (click)="all = true" class="mx-auto" color="success">Liked only</ion-button>
 
   </div>
 
