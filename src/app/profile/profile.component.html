@@ -41,11 +41,10 @@
         </div>
         <div class="form-group">
           <label for="" class="mt-2">Gender</label>
-          <input name="gender" [(ngModel)]="user.gender" type="text" class="form-control"
-            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" required>
-          <div [hidden]="userForm.controls.gender?.valid || userForm.controls.gender?.pristine" class="error-feedback">
-            Name must start with an UPPERCASE character, and must be 2 characters long at least
-          </div>
+          <select name="gender" [(ngModel)]="user.gender" class="form-control" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="" class="mt-2">Description</label>
