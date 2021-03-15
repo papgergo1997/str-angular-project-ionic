@@ -14,7 +14,7 @@
   </ion-header>
   <ion-grid>
     <ion-row *ngIf="user && location">
-      <form #userForm="ngForm" class="col-12 col-lg-6 offset-lg-3">
+      <form #userForm="ngForm" class="col-12 col-lg-6 offset-lg-3" (ngSubmit)="onUpdate(userForm, user, location)">
         <div class="profile-photo--container" *ngFor="let photo of photoService.photos | showLatest; index as position">
           <ion-img class="mx-auto" [src]="photo.webviewPath"></ion-img>
         </div>

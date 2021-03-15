@@ -40,5 +40,14 @@ export class ProfileComponent implements OnInit {
     await this.photoService.loadSaved();
   }
 
+  onUpdate(form: NgForm, user: User, location: Location): void {
+    this.submitted = true
+    setTimeout(() => {
+      this.submitted = false
+    }, 500);
+    console.log(user.id)
+    this.userService.update(user);
+    this.locationService.update(location)
+  }
 
 }

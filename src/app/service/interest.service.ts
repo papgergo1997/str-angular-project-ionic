@@ -20,7 +20,9 @@ export class InterestService {
   }
 
   get(id: string): Observable<any> {
-    return this.interestCollection.doc(id).valueChanges();
+    return this.interestCollection.doc(id).valueChanges({
+      idField: 'id'
+    });
   }
 
   create(doc: any): Promise<any> {

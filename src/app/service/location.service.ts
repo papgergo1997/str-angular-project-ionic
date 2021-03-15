@@ -20,7 +20,9 @@ export class LocationService {
   }
 
   get(id: string): Observable<any> {
-    return this.locationCollection.doc(id).valueChanges();
+    return this.locationCollection.doc(id).valueChanges({
+      idField: 'id'
+    });
   }
 
   create(doc: any): Promise<any> {

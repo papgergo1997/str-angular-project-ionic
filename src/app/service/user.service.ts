@@ -21,7 +21,9 @@ export class UserService {
   }
 
   get(id: string): Observable<any> {
-    return this.userCollection.doc(id).valueChanges();
+    return this.userCollection.doc(id).valueChanges({
+      idField: 'id'
+    });
   }
 
   create(doc: any): Promise<any> {
