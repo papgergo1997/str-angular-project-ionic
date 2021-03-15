@@ -26,7 +26,7 @@
         <div class="form-group">
           <label for="" class="mt-2">Name</label>
           <input name="name" [(ngModel)]="user.name" type="text" class="form-control"
-            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" required>
+            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" placeholder="your full name" required>
           <div [hidden]="userForm.controls.name?.valid || userForm.controls.name?.pristine" class="error-feedback">
             Start with an UPPERCASE character, and be 2 characters long at least
           </div>
@@ -34,7 +34,7 @@
         <div class="form-group">
           <label for="" class="mt-2">Age</label>
           <input name="age" [(ngModel)]="user.age" type="text" class="form-control" pattern="^[0-9]{1}[0-9]{1}$"
-            required>
+            placeholder="00" required>
           <div [hidden]="userForm.controls.age?.valid || userForm.controls.age?.pristine" class="error-feedback">
             Age can only use numbers, and must be 2 charachters long
           </div>
@@ -49,7 +49,7 @@
         <div class="form-group">
           <label for="" class="mt-2">Description</label>
           <textarea name="description" [(ngModel)]="user.description" class="form-control" cols="30" rows="8"
-            pattern="^[A-Z]{1}[A-Za-z -.,]{1,249}$" required></textarea>
+            pattern="^[A-Z]{1}[A-Za-z -.,]{1,249}$" placeholder="informations of you" required></textarea>
           <div [hidden]="userForm.controls.description?.valid || userForm.controls.description?.pristine"
             class="error-feedback">
             Must start with an UPPERCASE character, and must be 2-250 charachters long
@@ -61,7 +61,7 @@
         <div class="form-group">
           <label for="" class="mt-2">Interest</label>
           <input name="interestName" [(ngModel)]="interest.name" type="text" class="form-control"
-            pattern="^[A-Za-z ]{2,}$" required>
+            pattern="^[A-Za-z ]{2,}$" placeholder="something you are intrested in" required>
           <div [hidden]="userForm.controls.interestName?.valid || userForm.controls.interestName?.pristine"
             class="error-feedback">
             Must be 2 characters long at least
@@ -70,7 +70,7 @@
         <div class="form-group">
           <label for="" class="mt-2">Description</label>
           <textarea name="interestDes" [(ngModel)]="interest.description" cols="30" rows="3" class="form-control"
-            pattern="^[A-Za-z -.,]{2,200}$" required></textarea>
+            pattern="^[A-Za-z -.,]{2,200}$" placeholder="something of your interest" required></textarea>
           <div [hidden]="userForm.controls.interestDes?.valid || userForm.controls.interestDes?.pristine"
             class="error-feedback">
             Must be 2-200 characters long
@@ -82,7 +82,7 @@
         <div class="form-group">
           <label for="" class="mt-2">Zip</label>
           <input name="zip" [(ngModel)]="location.zip" type="text" class="form-control"
-            pattern="^([A-Z]{2}|[0-9]{2})[0-9]{2,4}$" required>
+            pattern="^([A-Z]{2}|[0-9]{2})[0-9]{2,4}$" placeholder="AA012/0000" required>
           <div [hidden]="userForm.controls.zip?.valid || userForm.controls.zip?.pristine" class="error-feedback">
             Wrong format|recommended format: AA012/0000
           </div>
@@ -90,7 +90,7 @@
         <div class="form-group">
           <label for="" class="mt-2">City</label>
           <input name="city" [(ngModel)]="location.city" type="text" class="form-control"
-            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" required>
+            pattern="^[A-ZÁÉŐÚŰÖÜÓÍ]{1}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí ]{1,}$" placeholder="Sample City" required>
           <div [hidden]="userForm.controls.city?.valid || userForm.controls.city?.pristine" class="error-feedback">
             Must start with an UPPERCASE character, and be 2 characters long at least
           </div>
@@ -98,7 +98,7 @@
         <div class="form-group">
           <label for="" class="mt-2">Address</label>
           <input name="address" [(ngModel)]="location.address" type="text" class="form-control"
-            pattern="^[0-9]{1,3}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí -,.]{1,}$" required>
+            pattern="^[0-9]{1,3}[A-ZÁÉŐÚŰÖÜÓÍa-záéűúőöüóí -,.]{1,}$" placeholder="00 Sample Street" required>
           <div [hidden]="userForm.controls.address?.valid || userForm.controls.address?.pristine"
             class="error-feedback">
             Wrong format|recommended format: 00 Sample Street
