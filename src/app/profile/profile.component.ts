@@ -8,6 +8,7 @@ import { LocationService } from '../service/location.service';
 import { Location } from '../model/location';
 import { Interest } from '../model/interest';
 import { InterestService } from '../service/interest.service';
+import { IonRefresher } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
