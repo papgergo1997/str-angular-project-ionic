@@ -1,5 +1,5 @@
 export class Interest {
-    id: number = 0;
+    id: string = '';
     name: string = '';
     description: string = '';
 }

@@ -13,14 +13,14 @@ import { UserService } from '../service/user.service';
 export class ConnectionsComponent implements OnInit {
 
   accepted: boolean = true;
-  @Output() currentUser: number = 31;
-  connections: BehaviorSubject<Connection[]> = this.connectionService.list$;
+  @Output() currentUser: string = 'aHYQeMCvZD7qV05retF6';
+  connections: Observable<Connection[]> = this.connectionService.list$;
   constructor(private userService: UserService, private connectionService: ConnectionService) {
-    this.connectionService.getConnection();
+
   }
 
   ngOnInit() {
-    this.connectionService.getAll()
+
   }
 
 }

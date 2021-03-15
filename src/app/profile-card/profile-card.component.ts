@@ -16,44 +16,39 @@ export class ProfileCardComponent implements OnInit {
   @Input() user: User = new User();
   @Input() connection: Connection = new Connection();
   @Input() all: boolean = false;
-  @Input() currentUser: number = 0;
+  @Input() currentUser: string = '';
   user2: User = new User();
 
   constructor(private userService: UserService, private connectionService: ConnectionService) { }
 
   ngOnInit() {
     this.getUserFromConnection()
+
   }
 
-  onLike(boolean: boolean, user: User) {
-    user.liked = boolean;
+  onLike(liked: boolean, showed: boolean, user: User) {
+    user.liked = liked;
+    user.showed = showed;
     this.userService.update(user)
   }
   onDisLike(boolean: boolean, user: User) {
     user.liked = boolean;
-    this.userService.update(user).subscribe(
-      () => this.userService.getAll()
-    )
+    this.userService.update(user)
   }
   onDisLikeWhenAllSeen(boolean: boolean, user: User): void {
     user.showed = boolean;
-    this.userService.update(user).subscribe(
-      () => this.userService.getAll()
-    )
+    this.userService.update(user)
   }
   onDeleteConnection(connection: Connection): void {
-    this.connectionService.remove(connection).subscribe(
-      () => this.connectionService.getConnection()
-    )
+    this.connectionService.remove(connection);
   }
   getUserFromConnection(): void {
-    if (this.user.id == 0) {
-      this.userService.get(this.connection.user2).subscribe((user) => this.user2 = user);
-      setTimeout(() => {
-        this.user = this.user2
-      }, 300);
+    if (this.user.id == '') {
+      this.userService.get(this.connection.user2).subscribe((user) => this.user = user);
     } else {
       return
     }
+
   }
+
 }

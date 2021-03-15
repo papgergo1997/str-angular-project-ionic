@@ -1,5 +1,5 @@
 export class Location {
-    id: number = 0;
+    id: string = '';
     zip: string = '';
     city: string = '';
     address: string = ''

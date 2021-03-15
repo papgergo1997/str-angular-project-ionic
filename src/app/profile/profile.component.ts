@@ -4,6 +4,10 @@ import { PhotoService } from '../service/photo.service';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { UserService } from '../service/user.service';
+import { LocationService } from '../service/location.service';
+import { Location } from '../model/location';
+import { Interest } from '../model/interest';
+import { InterestService } from '../service/interest.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,11 +17,19 @@ import { UserService } from '../service/user.service';
 export class ProfileComponent implements OnInit {
 
   user: User = new User();
+  location: Location = new Location();
+  interest: Interest = new Interest();
   submitted: boolean = false;
-  currentUser: number = 31;
+  currentUser: string = 'aHYQeMCvZD7qV05retF6';
 
-  constructor(public photoService: PhotoService, private userService: UserService) {
-    this.userService.get(31).subscribe((user) => this.user = user)
+
+  constructor(public photoService: PhotoService, private userService: UserService, private locationService: LocationService, private interestService: InterestService) {
+    this.userService.get(this.currentUser).subscribe((user) => {
+      this.user = user;
+      this.locationService.get(user.location).subscribe((location) => this.location = location)
+      this.interestService.get(user.interest).subscribe((interest) => this.interest = interest)
+    })
+
   }
 
   addPhotoToGallery() {
@@ -27,5 +39,6 @@ export class ProfileComponent implements OnInit {
   async ngOnInit() {
     await this.photoService.loadSaved();
   }
+
 
 }

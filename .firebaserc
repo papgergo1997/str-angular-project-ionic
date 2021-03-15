@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ionic-angular-project-1abb3": {
+      "hosting": {
+        "app": [
+          "ionic-angular-project-1abb3"
+        ]
+      }
+    }
+  }
+}
