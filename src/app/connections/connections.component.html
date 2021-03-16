@@ -15,7 +15,7 @@
   <div class="col-lg-4 offset-lg-4">
     <app-profile-card class="my-2 mx-2"
       *ngFor="let connection of connections | async | showAcceptedConnections:accepted" [connection]="connection"
-      [currentUser]="currentUser">
+      [currentUser]="currentUser" [all]="all">
     </app-profile-card>
   </div>
 </ion-content>

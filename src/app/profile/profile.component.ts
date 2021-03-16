@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
     this.userService.get(this.currentUser).subscribe((user) => {
       this.user = user;
       this.locationService.get(user.location).subscribe((location) => this.location = location)
-      this.interestService.get(user.interest).subscribe((interest) => this.interest = interest)
+      this.interestService.get(user.interest[0]).subscribe((interest) => this.interest = interest)
     })
 
   }

@@ -18,6 +18,7 @@ export class ProfileCardComponent implements OnInit {
   @Input() all: boolean = false;
   @Input() currentUser: string = '';
   user2: User = new User();
+  user1: string = 'aHYQeMCvZD7qV05retF6'
 
   constructor(private userService: UserService, private connectionService: ConnectionService) { }
 
@@ -29,6 +30,11 @@ export class ProfileCardComponent implements OnInit {
   onLike(liked: boolean, showed: boolean, user: User) {
     user.liked = liked;
     user.showed = showed;
+    this.connectionService.create({
+      user1: this.user1,
+      user2: user.id,
+      accepted: false
+    })
     this.userService.update(user)
   }
   onDisLike(boolean: boolean, user: User) {

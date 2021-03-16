@@ -14,6 +14,7 @@ export class ConnectionsComponent implements OnInit {
 
   accepted: boolean = true;
   @Output() currentUser: string = 'aHYQeMCvZD7qV05retF6';
+  @Output() all: boolean = true;
   connections: Observable<Connection[]> = this.connectionService.list$;
   constructor(private userService: UserService, private connectionService: ConnectionService) {
 
