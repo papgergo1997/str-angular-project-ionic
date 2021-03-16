@@ -23,7 +23,7 @@ export class FilterPipe implements PipeTransform {
         return item === phrase;
       } else {
         return ('' + item[this.keys[1]]).toLowerCase().includes((phrase as string)) ||
-          ('' + item[this.keys[2]]).toLowerCase().includes((phrase as string)) ||
+          ('' + item[this.keys[2]]).toLowerCase().startsWith((phrase as string)) ||
           ('' + item[this.keys[3]]).toLowerCase().includes((phrase as string)) ||
           ('' + item[this.keys[4]]).toLowerCase().includes((phrase as string)) ||
           ('' + item[this.keys[5]]).toLowerCase().includes((phrase as string)) ||
