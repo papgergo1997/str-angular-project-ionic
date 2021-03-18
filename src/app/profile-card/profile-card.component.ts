@@ -17,14 +17,15 @@ export class ProfileCardComponent implements OnInit {
   @Input() connection: Connection = new Connection();
   @Input() all: boolean = false;
   @Input() currentUser: string = '';
+  background: string = 'female';
   user2: User = new User();
   user1: string = 'aHYQeMCvZD7qV05retF6'
 
   constructor(private userService: UserService, private connectionService: ConnectionService) { }
 
   ngOnInit() {
-    this.getUserFromConnection()
-
+    this.getUserFromConnection();
+    this.createUserBackground()
   }
 
   onLike(liked: boolean, showed: boolean, user: User) {
@@ -55,6 +56,11 @@ export class ProfileCardComponent implements OnInit {
       return
     }
 
+  }
+  createUserBackground(): void {
+    if (this.user.gender == 'male') {
+      this.background = 'male'
+    }
   }
 
 }

@@ -1,4 +1,6 @@
 <ion-card *ngIf="user" class="text-center" button="true" color="medium">
+  <img class="background" src="{{user.photo}}" alt="{{user.photo}}">
+  <img class="background-2" src="/assets/img/{{background}}.jpg" alt="{{background}}">
   <ion-card-header>
     <img src="{{user.photo}}" alt="{{user.photo}}">
     <ion-card-title>{{user.name}}</ion-card-title>

@@ -7,3 +7,20 @@ ion-card{
     border-radius: 40px;
     box-shadow: 0 0 9px rgb(200, 200, 200);
 }
+
+.background {
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    height: 80%;
+    width: 100%;
+    filter: opacity(40%) 
+}
+.background-2 {
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    filter: opacity(20%)
+}
