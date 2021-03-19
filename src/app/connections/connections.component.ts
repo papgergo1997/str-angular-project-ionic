@@ -12,6 +12,7 @@ import { UserService } from '../service/user.service';
 })
 export class ConnectionsComponent implements OnInit {
 
+  notAccepted: boolean = false;
   accepted: boolean = true;
   @Output() currentUser: string = 'aHYQeMCvZD7qV05retF6';
   @Output() all: boolean = true;

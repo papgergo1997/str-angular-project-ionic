@@ -20,6 +20,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule, USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/auth';
 import { firebase, firebaseui, FirebaseUIModule } from 'firebaseui-angular';
+import { ShowNotAcceptedPipe } from './pipes/show-not-accepted.pipe';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -62,7 +63,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     FilterPipe,
     ShowedPipe,
     ShowLatestPipe,
-    ShowAcceptedConnectionsPipe
+    ShowAcceptedConnectionsPipe,
+    ShowNotAcceptedPipe
   ],
   entryComponents: [],
   imports: [BrowserModule,
