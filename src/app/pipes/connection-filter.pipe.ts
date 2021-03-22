@@ -20,9 +20,7 @@ export class ConnectionFilterPipe implements PipeTransform {
     if (!Array.isArray(value)) {
       return value;
     }
-
     return value.filter((item) => {
-
       if (this.user.gender == 'male' && (this.user.age > 20 && this.user.age < 30)) {
         return ('' + item.gender).toLowerCase().includes(('female' as string)) && (item.age < 30 && item.age > 20)
       } else if (this.user.gender == 'male' && (this.user.age > 30 && this.user.age < 40)) {
@@ -32,7 +30,6 @@ export class ConnectionFilterPipe implements PipeTransform {
       } else if (this.user.gender == 'female' && (this.user.age > 20 && this.user.age < 30)) {
         return ('' + item.gender).toLowerCase().startsWith(('male' as string)) && (item.age < 30 && item.age > 20)
       }
-
     })
 
   }
