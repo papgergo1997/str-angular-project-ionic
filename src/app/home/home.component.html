@@ -21,6 +21,12 @@
   </div>
 
   <div class="col-lg-4 offset-lg-4" *ngIf="!all">
+    <app-profile-card class="my-2 mx-2"
+      *ngFor="let user of userList$ | async | showed:showed | connectionFilter | filter:phrase" [user]="user"
+      [all]="all">
+    </app-profile-card>
+  </div>
+  <div class="col-lg-4 offset-lg-4" *ngIf="!all">
     <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async | showed:showed | filter:phrase"
       [user]="user" [all]="all">
     </app-profile-card>
