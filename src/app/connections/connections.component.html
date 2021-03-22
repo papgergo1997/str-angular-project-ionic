@@ -13,15 +13,15 @@
     </ion-toolbar>
   </ion-header>
   <div class="col-lg-4 offset-lg-4">
-    <h4 class="text-center mt-4">Not
+    <h5 class="text-center mt-4">Not
       accepted
-      connections, if you have any</h4>
+      connections, if you have any</h5>
     <app-profile-card class="my-2 mx-2" *ngFor="let connection of connections | async | showNotAccepted:notAccepted"
       [connection]="connection" [currentUser]="currentUser" [all]="all" [notAccepted]="notAcceptedConnections">
     </app-profile-card>
   </div>
   <div class="col-lg-4 offset-lg-4">
-    <h4 class="text-center">Accepted connections</h4>
+    <h5 class="text-center">Accepted connections</h5>
     <app-profile-card class="my-2 mx-2"
       *ngFor="let connection of connections | async | showAcceptedConnections:accepted" [connection]="connection"
       [currentUser]="currentUser" [all]="all">

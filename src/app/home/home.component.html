@@ -20,10 +20,10 @@
     </div>
   </div>
 
-  <div class="col-lg-4 offset-lg-4" *ngIf="!all">
+  <div class="col-lg-4 offset-lg-4">
     <app-profile-card class="my-2 mx-2"
       *ngFor="let user of userList$ | async | showed:showed | connectionFilter | filter:phrase" [user]="user"
-      [all]="all">
+      [all]="all" [recommended]="recommended">
     </app-profile-card>
   </div>
   <div class="col-lg-4 offset-lg-4" *ngIf="!all">
@@ -33,6 +33,7 @@
   </div>
 
   <div class="col-lg-4 offset-lg-4" *ngIf="all">
+    <h5 class="text-center">Users you like</h5>
     <app-profile-card class="my-2 mx-2" *ngFor="let user of userList$ | async | likedOnly:true | filter:phrase"
       [user]="user" [all]="all">
     </app-profile-card>

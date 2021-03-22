@@ -18,6 +18,7 @@ export class ProfileCardComponent implements OnInit {
   @Input() connection: Connection = new Connection();
   @Input() all: boolean = false;
   @Input() currentUser: string = '';
+  @Input() recommended: boolean = false;
   background: string = 'female';
   user2: User = new User();
   user1: string = 'aHYQeMCvZD7qV05retF6'

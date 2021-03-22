@@ -1,6 +1,9 @@
 <ion-card *ngIf="user" button="true" color="medium">
   <img class="background" src="{{user.photo}}" alt="{{user.photo}}">
   <img class="background-2" src="/assets/img/{{background}}.jpg" alt="{{background}}">
+  <div class="recommended text-center mt-2 py-0" *ngIf="recommended">
+    <h4><i class="fa fa-heart"></i> Recommended for you <i class="fa fa-heart"></i></h4>
+  </div>
   <ion-card-header class="text-center">
     <img src="{{user.photo}}" alt="{{user.photo}}">
     <ion-card-title>{{user.name}}, {{user.age}}</ion-card-title>
@@ -33,7 +36,7 @@
     <ion-fab-button (click)="onDeleteConnection(connection)" class="mx-auto" color="danger"><i class="fa fa-close"></i>
     </ion-fab-button>
   </div>
-  <div *ngIf="!all" class="row pt-2 mt-5 mb-3">
+  <div *ngIf="!all || (currentUser == '' && recommended)" class="row pt-2 mt-5 mb-3">
     <ion-fab-button (click)="onLike(true, false, user)" class="mx-auto" color="success"><i class="fa fa-thumbs-up"></i>
     </ion-fab-button>
     <ion-fab-button class="mx-auto" color="primary"><i class="fa fa-star"></i></ion-fab-button>
@@ -45,7 +48,7 @@
     <ion-fab-button (click)="onDeleteConnection(connection)" class="mx-auto" color="danger"><i class="fa fa-close"></i>
     </ion-fab-button>
   </div>
-  <div *ngIf="all && currentUser == ''" class="row pt-2 mt-5 mb-3">
+  <div *ngIf="all && currentUser == '' && !recommended" class="row pt-2 mt-5 mb-3">
     <ion-fab-button class="mx-auto" color="primary"><i class="fa fa-star"></i></ion-fab-button>
     <ion-fab-button (click)="onDisLike(false, user)" class="mx-auto" color="danger"><i class="fa fa-close"></i>
     </ion-fab-button>
