@@ -1,30 +1,58 @@
-<ion-card class="text-center" button="true" color="medium">
-  <ion-card-header>
+<ion-card *ngIf="user" button="true" color="medium">
+  <img class="background" src="{{user.photo}}" alt="{{user.photo}}">
+  <img class="background-2" src="/assets/img/{{background}}.jpg" alt="{{background}}">
+  <div class="recommended text-center mt-2 py-0" *ngIf="recommended">
+    <h4><i class="fa fa-heart"></i> Recommended for you <i class="fa fa-heart"></i></h4>
+  </div>
+  <ion-card-header class="text-center">
     <img src="{{user.photo}}" alt="{{user.photo}}">
-    <ion-card-title>{{user.name}}</ion-card-title>
+    <ion-card-title>{{user.name}}, {{user.age}}</ion-card-title>
   </ion-card-header>
+  <ion-card-content class="py-0 text-center">
+    <i class="fa fa-map-marker"></i> Location: {{user.location.city}}
+  </ion-card-content>
 
-  <ion-card-content>
-    {{user.description}}
+  <ion-card-content class="py-0 text-center">
+    <i class="fa fa-venus-mars"></i> Gender: {{user.gender}}
   </ion-card-content>
-  <ion-card-content>
-    {{user.age}}
+  <ion-card-content class="py-0 text-center">
+    <i class="fa fa-book"></i> About me: <br> {{user.description}}
   </ion-card-content>
-  <ion-card-content>
-    {{user.gender}}
-  </ion-card-content>
-  <div *ngIf="!all" class="row my-5">
-    <ion-fab-button (click)="onLike(true, user)" (click)="onDisLikeWhenAllSeen(false, user)" class="mx-auto"
-      color="success"><i class="fa fa-thumbs-up"></i>
+  <div *ngIf="user.interest">
+    <h6 class="ml-3 mt-2">Interests:</h6>
+    <div *ngFor="let interest of user.interest">
+      <ion-card-content class="py-0">
+        Name: {{interest.name}}
+      </ion-card-content>
+      <ion-card-content class="py-0">
+        Description: {{interest.description}}
+      </ion-card-content>
+    </div>
+  </div>
+  <div *ngIf="notAccepted" class="row pt-2 mt-5 mb-3">
+    <ion-fab-button (click)="onAcceptConnection(connection, user)" class="mx-auto" color="success"><i
+        class="fa fa-thumbs-up"></i>
+    </ion-fab-button>
+    <ion-fab-button (click)="onDeleteConnection(connection)" class="mx-auto" color="danger"><i class="fa fa-close"></i>
+    </ion-fab-button>
+  </div>
+  <div *ngIf="!all || (currentUser == '' && recommended)" class="row pt-2 mt-5 mb-3">
+    <ion-fab-button (click)="onLike(true, false, user)" class="mx-auto" color="success"><i class="fa fa-thumbs-up"></i>
     </ion-fab-button>
     <ion-fab-button class="mx-auto" color="primary"><i class="fa fa-star"></i></ion-fab-button>
     <ion-fab-button (click)="onDisLikeWhenAllSeen(false, user)" class="mx-auto" color="danger"><i
         class="fa fa-close"></i></ion-fab-button>
   </div>
-  <div *ngIf="all" class="row my-5">
+  <div *ngIf="currentUser != '' && !notAccepted" class="row pt-2 mt-5 mb-3">
+    <ion-fab-button class="mx-auto" color="primary"><i class="fa fa-star"></i></ion-fab-button>
+    <ion-fab-button (click)="onDeleteConnection(connection)" class="mx-auto" color="danger"><i class="fa fa-close"></i>
+    </ion-fab-button>
+  </div>
+  <div *ngIf="all && currentUser == '' && !recommended" class="row pt-2 mt-5 mb-3">
     <ion-fab-button class="mx-auto" color="primary"><i class="fa fa-star"></i></ion-fab-button>
     <ion-fab-button (click)="onDisLike(false, user)" class="mx-auto" color="danger"><i class="fa fa-close"></i>
     </ion-fab-button>
   </div>
+
 
 </ion-card>

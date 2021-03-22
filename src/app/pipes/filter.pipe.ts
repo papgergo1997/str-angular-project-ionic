@@ -1,10 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { User } from '../model/user';
 
+
+
 @Pipe({
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
+
+  user: User = new User()
+  keys: string[] = Object.keys(this.user);
 
   transform(value: any[] | null, phrase: string | number | boolean): any[] | null {
     if (!Array.isArray(value) || !phrase) {
@@ -12,16 +17,17 @@ export class FilterPipe implements PipeTransform {
     }
     phrase = typeof phrase !== 'number' ? ('' + phrase).toLowerCase() : phrase;
 
-    //Még nem működik!!!!!!!!!!
+    //Works, its not nice but works!!!
     return value.filter(item => {
       if (typeof item === 'number' && typeof phrase === 'number') {
         return item === phrase;
-
       } else {
-        for (let i = 0; i < item.length; i++) {
-          return item[i].toLowerCase().includes((phrase as string));
-        }
-
+        return ('' + item[this.keys[1]]).toLowerCase().includes((phrase as string)) ||
+          ('' + item[this.keys[2]]).toLowerCase().startsWith((phrase as string)) ||
+          ('' + item[this.keys[3]]).toLowerCase().includes((phrase as string)) ||
+          ('' + item[this.keys[4]]).toLowerCase().includes((phrase as string)) ||
+          ('' + item[this.keys[5]]).toLowerCase().includes((phrase as string)) ||
+          ('' + item[this.keys[6]]).toLowerCase().includes((phrase as string));
       }
     })
   }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Interest } from '../model/interest';
 
@@ -8,41 +9,31 @@ import { Interest } from '../model/interest';
 })
 export class InterestService {
 
-  apiUrl: string = 'http://localhost:3000/interests';
-  list$: BehaviorSubject<Interest[]> = new BehaviorSubject<Interest[]>([]);
+  interestCollection: AngularFirestoreCollection<any>;
+  list$: Observable<any>;
 
-  constructor(private http: HttpClient) {
-    this.getAll();
+  constructor(private fireStore: AngularFirestore) {
+    this.interestCollection = this.fireStore.collection('interests');
+    this.list$ = this.interestCollection.valueChanges({
+      idField: 'id'
+    });
   }
 
-  getAll(): void {
-    this.http.get<Interest[]>(this.apiUrl).subscribe(
-      interests => this.list$.next(interests)
-    );
+  get(id: string): Observable<any> {
+    return this.interestCollection.doc(id).valueChanges({
+      idField: 'id'
+    });
   }
 
-  get(id: number): Observable<Interest> {
-    id = typeof id === 'string' ? parseInt(id, 10) : id;
-    const ev: Observable<Interest> | undefined = this.http.get<Interest>(`${this.apiUrl}/${id}`)
-    if (id == 0) {
-      return of(new Interest());
-    } else {
-      return ev;
-    }
+  create(doc: any): Promise<any> {
+    return this.interestCollection.add({ ...doc });
   }
-
-  create(interest: Interest): Observable<Interest> {
-    return this.http.post<Interest>(this.apiUrl, interest);
+  update(doc: any): Promise<any> {
+    const id = doc.id;
+    delete doc.id
+    return this.interestCollection.doc(id).update({ ...doc });
   }
-
-  update(interest: Interest): Observable<Interest> {
-    return this.http.patch<Interest>(`${this.apiUrl}/${interest.id}`, interest);
+  remove(doc: any): Promise<any> {
+    return this.interestCollection.doc(doc.id).delete();
   }
-
-  remove(interest: Interest): void {
-    this.http.delete<Interest>(`${this.apiUrl}/${interest.id}`).subscribe(
-      () => this.getAll()
-    );
-  }
-
 }

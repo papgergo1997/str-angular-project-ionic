@@ -2,46 +2,42 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Connection } from '../model/connection';
+import { User } from '../model/user';
+import { UserService } from './user.service';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConnectionService {
-  apiUrl: string = 'http://localhost:3000/connections';
-  list$: BehaviorSubject<Connection[]> = new BehaviorSubject<Connection[]>([]);
-  usersConnection: Connection[] = [];
 
-  constructor(private http: HttpClient) {
-    this.getAll();
+  list$: Observable<any>;
+  user: User = new User();
+  connectionCollection: AngularFirestoreCollection<any>;
+
+
+  constructor(private fireStore: AngularFirestore, private userService: UserService) {
+    this.connectionCollection = this.fireStore.collection('connections');
+    this.list$ = this.connectionCollection.valueChanges({
+      idField: 'id'
+    });
   }
 
-  getAll(): void {
-    this.http.get<Connection[]>(this.apiUrl).subscribe(
-      connections => this.list$.next(connections)
-    );
+
+
+  create(doc: any): Promise<any> {
+    return this.connectionCollection.add({ ...doc });
   }
 
-  get(id: number): Observable<Connection> {
-    id = typeof id === 'string' ? parseInt(id, 10) : id;
-    const ev: Observable<Connection> | undefined = this.http.get<Connection>(`${this.apiUrl}/${id}`);
-    if (id == 0) {
-      return of(new Connection());
-    } else {
-      return ev;
-    }
+  update(doc: any): Promise<any> {
+    const id = doc.id
+    delete doc.id
+    return this.connectionCollection.doc(id).update({ ...doc });
   }
 
-  create(connection: Connection): Observable<Connection> {
-    return this.http.post<Connection>(this.apiUrl, connection);
+  remove(doc: any): Promise<any> {
+    return this.connectionCollection.doc(doc.id).delete();
   }
 
-  update(connection: Connection): Observable<Connection> {
-    return this.http.patch<Connection>(`${this.apiUrl}/${connection.id}`, connection);
-  }
-
-  remove(connection: Connection): void {
-    this.http.delete<Connection>(`${this.apiUrl}/${connection.id}`).subscribe(
-      () => this.getAll()
-    );
-  }
 }
+

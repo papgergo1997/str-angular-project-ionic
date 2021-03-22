@@ -11,7 +11,8 @@ import { UserService } from '../service/user.service';
 export class HomeComponent implements OnInit {
 
   @Output() all: boolean = true;
-  userList$: BehaviorSubject<User[]> = this.userService.list$;
+  @Output() recommended: boolean = true;
+  userList$: Observable<User[]> = this.userService.list$;
   phrase: string = '';
   showed: boolean = true;
 

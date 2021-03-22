@@ -2,8 +2,8 @@ import { User } from "./user";
 
 const user: User = new User();
 export class Connection {
-    id: number = 0;
-    user1: number = user.id;
-    user2: number = user.id;
+    id: string = '';
+    user1: string = user.id;
+    user2: string = user.id;
     accepted: boolean = false;
 }

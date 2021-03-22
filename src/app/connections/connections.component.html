@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Connections
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Connection</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="col-lg-4 offset-lg-4">
+    <h5 class="text-center mt-4">Not
+      accepted
+      connections, if you have any</h5>
+    <app-profile-card class="my-2 mx-2" *ngFor="let connection of connections | async | showNotAccepted:notAccepted"
+      [connection]="connection" [currentUser]="currentUser" [all]="all" [notAccepted]="notAcceptedConnections">
+    </app-profile-card>
+  </div>
+  <div class="col-lg-4 offset-lg-4">
+    <h5 class="text-center">Accepted connections</h5>
+    <app-profile-card class="my-2 mx-2"
+      *ngFor="let connection of connections | async | showAcceptedConnections:accepted" [connection]="connection"
+      [currentUser]="currentUser" [all]="all">
+    </app-profile-card>
+  </div>
+</ion-content>

@@ -1,3 +1,37 @@
 img {
     width: 200px;
 }
+ion-card{
+    background-color: rgb(230, 230, 230);
+    height: 500px;    
+    border-radius: 40px;
+    box-shadow: 0 0 9px rgb(200, 200, 200);
+    max-height: calc(100% - #{50px});
+  position: relative;
+  overflow: hidden;
+  overflow-y: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.background {
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    height: 80%;
+    width: 100%;
+    filter: opacity(40%) 
+}
+.background-2 {
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    filter: opacity(20%)
+}
+.recommended{
+  color: orangered ;
+  // border: 2px solid orange;
+}

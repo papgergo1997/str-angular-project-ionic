@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Location } from '../model/location';
 
@@ -8,43 +9,34 @@ import { Location } from '../model/location';
 })
 export class LocationService {
 
-  apiUrl: string = 'http://localhost:3000/locations';
-  list$: BehaviorSubject<Location[]> = new BehaviorSubject<Location[]>([]);
+  locationCollection: AngularFirestoreCollection<any>
+  list$: Observable<any>
 
-  constructor(private http: HttpClient) {
-    this.getAll();
+  constructor(private fireStore: AngularFirestore) {
+    this.locationCollection = this.fireStore.collection('locations');
+    this.list$ = this.locationCollection.valueChanges({
+      idField: 'id'
+    });
   }
 
-
-  getAll(): void {
-    this.http.get<Location[]>(this.apiUrl).subscribe(
-      locations => this.list$.next(locations)
-    );
+  get(id: string): Observable<any> {
+    return this.locationCollection.doc(id).valueChanges({
+      idField: 'id'
+    });
   }
 
-  get(id: number): Observable<Location> {
-    id = typeof id === 'string' ? parseInt(id, 10) : id;
-    const ev: Observable<Location> | undefined = this.http.get<Location>(`${this.apiUrl}/${id}`);
-    if (id == 0) {
-      return of(new Location());
-    } else {
-      return ev;
-    }
+  create(doc: any): Promise<any> {
+    return this.locationCollection.add({ ...doc });
   }
 
-  create(location: Location): Observable<Location> {
-    return this.http.post<Location>(this.apiUrl, location);
+  update(doc: any): Promise<any> {
+    const id = doc.id
+    delete doc.id
+    return this.locationCollection.doc(id).update({ ...doc });
   }
 
-  update(location: Location): Observable<Location> {
-    return this.http.patch<Location>(`${this.apiUrl}/${location.id}`, location);
+  remove(doc: any): Promise<any> {
+    return this.locationCollection.doc(doc.id).delete();
   }
-
-  remove(location: Location): void {
-    this.http.delete<Location>(`${this.apiUrl}/${location.id}`).subscribe(
-      () => this.getAll()
-    );
-  }
-
 
 }
