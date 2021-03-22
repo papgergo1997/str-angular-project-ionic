@@ -6,6 +6,13 @@ ion-card{
     height: 500px;    
     border-radius: 40px;
     box-shadow: 0 0 9px rgb(200, 200, 200);
+    max-height: calc(100% - #{50px});
+  position: relative;
+  overflow: hidden;
+  overflow-y: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .background {

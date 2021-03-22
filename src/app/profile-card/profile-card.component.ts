@@ -13,6 +13,7 @@ import { UserService } from '../service/user.service';
 })
 export class ProfileCardComponent implements OnInit {
 
+  @Input() notAccepted: boolean = false;
   @Input() user: User = new User();
   @Input() connection: Connection = new Connection();
   @Input() all: boolean = false;
@@ -21,21 +22,22 @@ export class ProfileCardComponent implements OnInit {
   user2: User = new User();
   user1: string = 'aHYQeMCvZD7qV05retF6'
 
+
   constructor(private userService: UserService, private connectionService: ConnectionService) { }
 
   ngOnInit() {
     this.getUserFromConnection();
-    this.createUserBackground()
+    this.createUserBackground();
   }
 
   onLike(liked: boolean, showed: boolean, user: User) {
     user.liked = liked;
     user.showed = showed;
-    this.connectionService.create({
-      user1: this.user1,
-      user2: user.id,
-      accepted: false
-    })
+    // this.connectionService.create({
+    //   user1: this.user1,
+    //   user2: user.id,
+    //   accepted: false
+    // })
     this.userService.update(user)
   }
   onDisLike(boolean: boolean, user: User) {
@@ -48,6 +50,13 @@ export class ProfileCardComponent implements OnInit {
   }
   onDeleteConnection(connection: Connection): void {
     this.connectionService.remove(connection);
+  }
+  onAcceptConnection(connection: Connection, user: User): void {
+    connection.accepted = true;
+    this.connectionService.update(connection);
+    user.liked = true;
+    user.showed = false;
+    this.userService.update(user);
   }
   getUserFromConnection(): void {
     if (this.user.id == '') {

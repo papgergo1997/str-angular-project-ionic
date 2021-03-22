@@ -27,8 +27,8 @@ export class ProfileComponent implements OnInit {
   constructor(public photoService: PhotoService, private userService: UserService, private locationService: LocationService, private interestService: InterestService) {
     this.userService.get(this.currentUser).subscribe((user) => {
       this.user = user;
-      this.locationService.get(user.location).subscribe((location) => this.location = location)
-      this.interestService.get(user.interest[0]).subscribe((interest) => this.interest = interest)
+      // this.locationService.get(user.location).subscribe((location) => this.location = location)
+      // this.interestService.get(user.interest[0]).subscribe((interest) => this.interest = interest)
     })
 
   }
@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
     }, 500);
     console.log(user.id)
     this.userService.update(user);
-    this.locationService.update(location)
+    // this.locationService.update(location)
   }
 
 }

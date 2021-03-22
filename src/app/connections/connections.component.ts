@@ -14,9 +14,11 @@ export class ConnectionsComponent implements OnInit {
 
   notAccepted: boolean = false;
   accepted: boolean = true;
+  @Output() notAcceptedConnections: boolean = true;
   @Output() currentUser: string = 'aHYQeMCvZD7qV05retF6';
   @Output() all: boolean = true;
   connections: Observable<Connection[]> = this.connectionService.list$;
+
   constructor(private userService: UserService, private connectionService: ConnectionService) {
 
   }
