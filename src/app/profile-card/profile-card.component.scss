@@ -1,9 +1,14 @@
 img {
     width: 200px;
 }
+
+ion-item {
+  width: 380px;
+}
 ion-card{
     background-color: rgb(230, 230, 230);
-    height: 500px;    
+    height: 500px;   
+    width: 380px; 
     border-radius: 40px;
     box-shadow: 0 0 9px rgb(200, 200, 200);
     max-height: calc(100% - #{50px});
@@ -18,7 +23,7 @@ ion-card{
 .background {
     position:absolute;
     left: 0;
-    bottom: 0;
+    bottom: -100px;
     height: 80%;
     width: 100%;
     filter: opacity(40%) 
@@ -26,8 +31,8 @@ ion-card{
 .background-2 {
     position:absolute;
     left: 0;
-    bottom: 0;
-    height: 100%;
+    bottom: -100px;
+    height: 130%;
     width: 100%;
     filter: opacity(20%)
 }

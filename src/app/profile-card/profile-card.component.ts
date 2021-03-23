@@ -43,9 +43,6 @@ export class ProfileCardComponent implements OnInit {
   }
   onDisLike(boolean: boolean, user: User) {
     user.liked = boolean;
-    this.userService.update(user)
-  }
-  onDisLikeWhenAllSeen(boolean: boolean, user: User): void {
     user.showed = boolean;
     this.userService.update(user)
   }
@@ -71,6 +68,22 @@ export class ProfileCardComponent implements OnInit {
     if (this.user.gender == 'male') {
       this.background = 'male'
     }
+  }
+  handleSlide(event: any, user: User): void {
+    let ratio = event.detail.ratio--;
+    console.log(ratio);
+    if (ratio > 0) {
+      setTimeout(() => {
+        this.onLike(true, false, user)
+        clearTimeout()
+      }, 500);
+    } else {
+      setTimeout(() => {
+        this.onDisLike(false, user)
+        clearTimeout()
+      }, 500);
+    }
+
   }
 
 }
