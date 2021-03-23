@@ -70,7 +70,7 @@ export class ProfileCardComponent implements OnInit {
     }
   }
   handleSlide(event: any, user: User): void {
-    let ratio = event.detail.ratio--;
+    let ratio = event.detail.ratio;
     console.log(ratio);
     if (ratio > 0) {
       setTimeout(() => {
