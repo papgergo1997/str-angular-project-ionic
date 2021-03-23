@@ -46,10 +46,6 @@ export class ProfileCardComponent implements OnInit {
     user.showed = boolean;
     this.userService.update(user)
   }
-  onDisLikeWhenAllSeen(boolean: boolean, user: User): void {
-
-    this.userService.update(user)
-  }
   onDeleteConnection(connection: Connection): void {
     this.connectionService.remove(connection);
   }
